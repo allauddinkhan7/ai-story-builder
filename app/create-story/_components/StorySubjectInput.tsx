@@ -1,15 +1,23 @@
-import { Textarea } from '@/components/ui/textarea'
+import { Textarea } from "@/components/ui/textarea";
+import { FieldData } from "../page";
 
-const StorySubjectInput = ({ userSelection }: any) => {
-  return  <Textarea
-          placeholder="Type your message here."
-          onChange={(e) =>
-            userSelection({
-              fieldValue: e.target.value,
-              fieldName: "storySubject",
-            })
-          }
-        />
+interface StorySubjectInputProps {
+  userSelection: (data: FieldData) => void;
 }
 
-export default StorySubjectInput
+const StorySubjectInput = ({ userSelection }: StorySubjectInputProps) => {
+  return (
+    <Textarea
+      placeholder="Describe the story you want to create..."
+      className="min-h-[140px]"
+      onChange={(e) =>
+        userSelection({
+          fieldName: "storySubject",
+          fieldValue: e.target.value,
+        })
+      }
+    />
+  );
+};
+
+export default StorySubjectInput;
