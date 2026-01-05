@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import { Nunito } from "next/font/google";
+import Header from "@/components/Header";
 
 // Font variable
 const nunito = Nunito({
@@ -26,6 +27,7 @@ export default function RootLayout({
         <body
           className={`${nunito.variable} font-sans bg-background text-foreground antialiased`}
         >
+    <Header/>
           {children}
         </body>
       </html>

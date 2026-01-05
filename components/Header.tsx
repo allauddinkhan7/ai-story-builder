@@ -28,15 +28,11 @@ const menu: { title: string; href: string }[] = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, isSignedIn } = useUser();
-  console.log("sssssssssssssssssssssssssssssss", isSignedIn);
-  // Function to close the menu, useful after a link is clicked
   const closeMenu = () => setIsMenuOpen(false);
-
+  console.log("tttttttttttttttttttttt", user)
   return (
     <>
-      {/* --- Main Desktop/Mobile Nav Bar --- */}
-      <nav className="flex items-center justify-between w-full h-16 px-4 bg-white border-b sticky top-0 z-50">
-        {/* --- Left Side: Logo and Title --- */}
+      <nav className="flex items-center justify-between w-full h-16 px-4 bg-gray-100 border-b sticky top-0 z-50">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src={"/logo.svg"}
@@ -48,7 +44,6 @@ const Header = () => {
           <h2 className="text-lg font-semibold">Generate story </h2>
         </Link>
 
-        {/* --- Middle: Desktop Menu Links (Hidden on small screens) --- */}
         <div className="hidden md:flex flex-1 justify-center">
           {menu.map((item) => (
             <Link
@@ -61,9 +56,7 @@ const Header = () => {
           ))}
         </div>
 
-        {/* --- Right Side: Desktop Button & Mobile Menu Icon --- */}
         <div className="flex items-center gap-4">
-          {/* Desktop Button - Hidden on small screens if you want it only in mobile menu */}
           <div className="hidden md:flex items-center gap-4">
             <Link href={"/dashboard"}>
               <Button> {`${isSignedIn ? "Dashboard" : "Get Started"}`}</Button>
@@ -71,7 +64,6 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Icon (Visible on small screens) */}
           <button
             className="md:hidden p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -81,8 +73,6 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* --- Mobile Menu Panel (Collapsible) --- */}
-      {/* Apply transition for smooth slide-down effect */}
       <div
         className={`md:hidden absolute w-full bg-white transition-all duration-300 ease-in-out shadow-lg ${
           isMenuOpen
