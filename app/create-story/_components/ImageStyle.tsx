@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const StoryType = () => {
+const ImageStyle = () => {
   const OptionList = [
     {
       label: "Story Book",
@@ -57,4 +57,6 @@ const StoryType = () => {
   );
 };
 
-export default StoryType;
+export default ImageStyle;
+
+

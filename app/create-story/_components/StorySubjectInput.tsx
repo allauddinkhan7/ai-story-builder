@@ -9,7 +9,7 @@ const StorySubjectInput = ({ userSelection }: StorySubjectInputProps) => {
   return (
     <Textarea
       placeholder="Describe the story you want to create..."
-      className="min-h-[140px]"
+      className="h-96 bg-gray-800 text-gray-200"
       onChange={(e) =>
         userSelection({
           fieldName: "storySubject",

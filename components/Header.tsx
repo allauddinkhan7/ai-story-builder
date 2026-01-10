@@ -27,9 +27,8 @@ const menu: { title: string; href: string }[] = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
   const closeMenu = () => setIsMenuOpen(false);
-  console.log("tttttttttttttttttttttt", user)
   return (
     <>
       <nav className="flex items-center justify-between w-full h-16 px-4 bg-gray-100 border-b sticky top-0 z-50">
