@@ -1,6 +1,5 @@
 "use client";
 
-import AgeGroup from "./_components/AgeGroup";
 import ImageStyle from "./_components/ImageStyle";
 import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
@@ -16,7 +15,7 @@ const CreateStory = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-gray-300 p-6 md:px-20 lg:px-40 w-full mx-auto">
+    <div className="bg-gray-900 text-gray-300 px-6 py-10 md:px-20 lg:px-40 w-full mx-auto">
       {/* Header */}
       <h2 className="font-extrabold text-[64px] text-center">Create</h2>
 
@@ -24,31 +23,29 @@ const CreateStory = () => {
         Unlock your creativity with AI-powered storytelling
       </p>
 
-      {/* SIDE BY SIDE SECTION */}
+      {/* CONTENT */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-20">
-        {/*input*/}
-        <div>
+        {/* LEFT COLUMN */}
+        <section>
           <h3 className="text-xl font-semibold mb-4">Subject of the Story</h3>
-
           <StorySubjectInput userSelection={onHandleUserSelection} />
-        </div>
-        {/*options*/}
-        <div>
+        </section>
+
+        {/* RIGHT COLUMN */}
+        <section className="space-y-10">
           <div>
             <h3 className="text-xl font-semibold mb-4">Story Type</h3>
             <StoryType />
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mt-2"> Age Group</h3>
-            <AgeGroup />
+            <h3 className="text-xl font-semibold mb-4">Image Type</h3>
+            {/* <AgeGroup /> */}
+            <ImageStyle />
           </div>
-        </div>
+        </section>
 
-        <div>
-          <h3 className="text-xl font-semibold mt-2"> Image Style</h3>
-          <ImageStyle />
-        </div>
+      
       </div>
     </div>
   );
