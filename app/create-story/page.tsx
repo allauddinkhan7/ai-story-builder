@@ -4,11 +4,6 @@ import ImageStyle from "./_components/ImageStyle";
 import StorySubjectInput from "./_components/StorySubjectInput";
 import StoryType from "./_components/StoryType";
 
-export interface FieldData {
-  fieldName: string;
-  fieldValue: string;
-}
-
 const CreateStory = () => {
   const onHandleUserSelection = (data: FieldData) => {
     console.log("User Selection Data:", data);
@@ -35,7 +30,7 @@ const CreateStory = () => {
         <section className="space-y-10">
           <div>
             <h3 className="text-xl font-semibold mb-4">Story Type</h3>
-            <StoryType />
+            <StoryType userSelection={onHandleUserSelection} />
           </div>
 
           <div>

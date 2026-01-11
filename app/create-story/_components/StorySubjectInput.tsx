@@ -1,9 +1,6 @@
 import { Textarea } from "@/components/ui/textarea";
-import { FieldData } from "../page";
 
-interface StorySubjectInputProps {
-  userSelection: (data: FieldData) => void;
-}
+
 
 const StorySubjectInput = ({ userSelection }: StorySubjectInputProps) => {
   return (

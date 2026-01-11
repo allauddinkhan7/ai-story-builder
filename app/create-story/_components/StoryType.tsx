@@ -1,34 +1,26 @@
 "use client";
 
+import { StoryTypeList } from "@/constants";
 import Image from "next/image";
 import { useState } from "react";
 
-const StoryType = () => {
-  const OptionList = [
-    {
-      label: "Story Book",
-      imageUrl:
-        "https://images.unsplash.com/photo-1645082215735-465c261c2e06?w=500",
-      isFree: true,
-    },
-    {
-      label: "Bed Story",
-      imageUrl:
-        "https://media.istockphoto.com/id/1158162402/photo/young-loving-mother-reads-bedtime-stories-to-her-little-beautiful-daughter-who-goes-to-sleep.webp?a=1&b=1&s=612x612&w=0&k=20&c=5LNc2KUmSLJUZ5RI9sDZ5nHcRToQbnE9ntfxvwjvnyo=",
-      isFree: true,
-    },
-    {
-      label: "Educational Story",
-      imageUrl:
-        "https://media.istockphoto.com/id/1470160123/photo/female-teacher-reads-to-multi-cultural-elementary-school-pupils-sitting-on-floor-in-class-at.webp?a=1&b=1&s=612x612&w=0&k=20&c=o67o-6Yh_5hAeg72H9XPobgS_-5ZYYd7C41d77Mjiig=",
-      isFree: false,
-    },
-  ];
+
+const StoryType = ({userSelection}: StorySubjectInputProps) => {
+  
   const [selectionOption, setSelectionOption] = useState<string>("");
+  
+  const userSelectedOption = (item: OptionFieldsTypes) => {
+    setSelectionOption(item.label)
+    userSelection({
+      fieldValue: item?.label,
+      fieldName: "storyType",
+    })
+  }
+  
   return (
     <>
       <div className="grid grid-cols-3 gap-5 mt-3 ">
-        {OptionList.map((item, index) => (
+        {StoryTypeList.map((item, index) => (
             <div
               key={index}
                className={`cursor-pointer hover:border rounded-2xl p-2 ${
@@ -36,7 +28,7 @@ const StoryType = () => {
                 ? "border border-gray-500 rounded-2xl"
                 : ""
             }`}
-              onClick={() => setSelectionOption(item.label)}
+              onClick={() => userSelectedOption(item)}
             >
               <Image
                 src={item.imageUrl}
